@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.niit.project</groupId>
+  <groupId>com.niit</groupId>
   <artifactId>projectbackend</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -12,6 +12,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <spring.version>5.0.6.RELEASE</spring.version>
   </properties>
 
   <dependencies>
@@ -21,6 +22,13 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- spring -->
+    <dependency>
+		 <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>${spring.version}</version>
+</dependency>
+    
   </dependencies>
   <build>
   <plugins>

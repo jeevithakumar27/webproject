@@ -3,9 +3,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
-<spring:url var="css" value="resources/css" />
-<spring:url var="js" value="resources/js" />
-<spring:url var="images" value="resources/images" />
+<spring:url var="css" value="}/resources/css" />
+<spring:url var="js" value="/resources/js" />
+<spring:url var="images" value="/resources/images" />
+
 <c:set var="contextRoot" value="${pageContext.request.contextPath}" />
 
 
@@ -20,19 +21,18 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>web project- ${title}</title>
+<title>Web Project- ${title}</title>
 <script>
 	window.menu = '${title}';
 </script>
 
 <!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap Readable Theme -->
-<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
 
 <!-- Custom styles for this template -->
-<link href="${css}/myapp.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/css/myapp.css" rel="stylesheet">
 
 </head>
 
@@ -59,6 +59,14 @@
 			<c:if test="${userClickContact == true }">
 				<%@include file="contact.jsp"%>
 			</c:if>
+
+			<!-- loads only when user clicks contact -->
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts== true}">
+				<%@include file="listProducts.jsp"%>
+			</c:if>
+
+
 		</div>
 
 
@@ -67,11 +75,11 @@
 		<%@include file="./shared/footer.jsp"%>
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="${js}/jquery.js"></script>
-		<script src="${js}/bootstrap.min.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
 
 		<!-- Self coded Javascript -->
-		<script src="${js}/myapp.js"></script>
+		<script src="${pageContext.request.contextPath}/resources/js/myapp.js"></script>
 	</div>
 </body>
 
